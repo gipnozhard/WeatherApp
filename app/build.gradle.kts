@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
+    id("kotlin-kapt")
+    id("kotlin-parcelize")
 }
 
 android {
@@ -27,11 +29,14 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "17"
+    }
+    buildFeatures {
+        viewBinding = true
     }
 }
 
@@ -45,4 +50,32 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    //Retrofit
+    implementation(libs.retrofit2)
+    implementation(libs.retrofit2.converter.gson)
+
+    //OkHTTP client
+    implementation(libs.okhttp)
+    implementation(libs.logging.interceptor)
+
+    //Lifecycle
+    implementation(libs.androidx.lifecycle.extensions)
+    implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(libs.androidx.lifecycle.livedata.ktx)
+
+    //Gson
+    implementation(libs.gson)
+
+    //Other
+    implementation("com.github.MatteoBattilana:WeatherView:3.0.0")
+
+    //ViewModel
+    implementation(libs.androidx.activity.ktx)
+    implementation("com.github.Dimezis:BlurView:version-2.0.3")
+    implementation("com.github.bumptech.glide:glide:4.12.0")
+}
+kapt {
+    correctErrorTypes = true
 }
