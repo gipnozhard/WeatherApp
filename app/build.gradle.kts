@@ -69,12 +69,12 @@ dependencies {
     implementation(libs.gson)
 
     //Other
-    implementation("com.github.MatteoBattilana:WeatherView:3.0.0")
+    implementation (libs.weatherview)
 
     //ViewModel
     implementation(libs.androidx.activity.ktx)
-    implementation("com.github.Dimezis:BlurView:version-2.0.3")
-    implementation("com.github.bumptech.glide:glide:4.12.0")
+    releaseImplementation(libs.blurview)
+    implementation(libs.glide)
 }
 kapt {
     correctErrorTypes = true
