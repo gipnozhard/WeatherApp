@@ -37,9 +37,9 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.apply {
-            var lat = 51.50
-            var lon = -0.12
-            var name = "London"
+            var lat = 55.7
+            var lon = 37.6
+            var name = "Moscow"
 
             cityTxt.text = name
             progressBar.visibility = View.VISIBLE
@@ -56,6 +56,7 @@ class MainActivity : AppCompatActivity() {
                         data?.let {
                             statusTxt.text = it.weather?.get(0)?.main ?: "-"
                             windTxt.text = it.wind?.speed?.let { Math.round(it).toString() } + "Km"
+                            humidityTxt.text = it.main?.humidity?.toString() + "%"
                             currentTempTxt.text =
                                 it.main?.temp?.let { Math.round(it).toString() } + "॰"
                             maxTempTxt.text =
