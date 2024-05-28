@@ -79,6 +79,12 @@ class MainActivity : AppCompatActivity() {
                 }
 
             })
+
+
+
+
+            //settings Blue View
+
         }
 
     }

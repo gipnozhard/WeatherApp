@@ -1,6 +1,6 @@
 [versions]
 agp = "8.3.2"
-blurview = "2.0.3"
+blurview = "version-2.0.3"
 converterGson = "2.9.0"
 glide = "4.12.0"
 gson = "2.10.1"
@@ -27,7 +27,7 @@ androidx-lifecycle-extensions = { module = "androidx.lifecycle:lifecycle-extensi
 androidx-lifecycle-livedata-ktx = { module = "androidx.lifecycle:lifecycle-livedata-ktx", version.ref = "lifecycleRuntimeKtx" }
 androidx-lifecycle-runtime-ktx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
 androidx-lifecycle-viewmodel-ktx = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycleRuntimeKtx" }
-blurview = { module = "com.github.dimezis:blurview", version.ref = "blurview" }
+blurview = { module = "com.github.Dimezis:BlurView", version.ref = "blurview" }
 glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
 gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }

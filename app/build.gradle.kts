@@ -73,7 +73,7 @@ dependencies {
 
     //ViewModel
     implementation(libs.androidx.activity.ktx)
-    releaseImplementation(libs.blurview)
+    implementation(libs.blurview)
     implementation(libs.glide)
 }
 kapt {
