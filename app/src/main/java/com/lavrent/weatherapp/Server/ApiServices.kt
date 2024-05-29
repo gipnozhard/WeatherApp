@@ -1,5 +1,6 @@
 package com.lavrent.weatherapp.Server
 
+import com.lavrent.weatherapp.model.CityResponseApi
 import retrofit2.Call
 import com.lavrent.weatherapp.model.CurrentResponseApi
 import com.lavrent.weatherapp.model.ForecastResponseApi
@@ -23,4 +24,11 @@ interface ApiServices {
         @Query("units") unit:String,
         @Query("appid") ApiKey:String,
     ):Call<ForecastResponseApi>
+
+    @GET("geo/1.0/direct")
+    fun getCitiesList(
+        @Query("q") q:String,
+        @Query("limit") limit:Int,
+        @Query("appid") ApiKey: String
+    ):Call<CityResponseApi>
 }
