@@ -15,16 +15,17 @@ import com.lavrent.weatherapp.Adapter.ForecastAdapter
 import com.lavrent.weatherapp.R
 import com.lavrent.weatherapp.ViewModel.WeatherViewModel
 import com.lavrent.weatherapp.databinding.ActivityMainBinding
-import com.lavrent.weatherapp.model.CurrentReponseApi
+import com.lavrent.weatherapp.model.CurrentResponseApi
 import com.lavrent.weatherapp.model.ForecastResponseApi
 import eightbitlab.com.blurview.RenderScriptBlur
 import retrofit2.Call
 import retrofit2.Response
 import java.util.Calendar
 
+
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
-    private val weatherViewModel:WeatherViewModel by viewModels()
+    private val weatherViewModel: WeatherViewModel by viewModels()
     private val calendar by lazy { Calendar.getInstance() }
     private val forecastAdapter by lazy { ForecastAdapter() }
 
@@ -48,11 +49,11 @@ class MainActivity : AppCompatActivity() {
             //current Temp
             cityTxt.text = name
             progressBar.visibility = View.VISIBLE
-            weatherViewModel.loadCurrentWeather(lat, lon, "metric").enqueue(object :
-                retrofit2.Callback<CurrentReponseApi> {
+            weatherViewModel.loadCurrentWeather(lat, lon, "metric")
+                .enqueue(object : retrofit2.Callback<CurrentResponseApi> {
                 override fun onResponse(
-                    call: Call<CurrentReponseApi>,
-                    response: Response<CurrentReponseApi>
+                    call: Call<CurrentResponseApi>,
+                    response: Response<CurrentResponseApi>
                 ) {
                     if (response.isSuccessful){
                         val data = response.body()
@@ -79,7 +80,7 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
 
-                override fun onFailure(call: Call<CurrentReponseApi>, t: Throwable) {
+                override fun onFailure(call: Call<CurrentResponseApi>, t: Throwable) {
                     Toast.makeText(this@MainActivity, t.toString(), Toast.LENGTH_SHORT).show()
                 }
 
@@ -104,7 +105,7 @@ class MainActivity : AppCompatActivity() {
 
 
             //forecast temp
-            weatherViewModel.loadCurrentWeather(lat, lon, "metric")
+            weatherViewModel.loadForecastWeather(lat, lon, "metric")
                 .enqueue(object : retrofit2.Callback<ForecastResponseApi> {
                 override fun onResponse(
                     call: Call<ForecastResponseApi>,
@@ -128,7 +129,7 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 override fun onFailure(call: Call<ForecastResponseApi>, t: Throwable) {
-
+                    TODO()
                 }
             })
         }

@@ -3,7 +3,7 @@ package com.lavrent.weatherapp.model
 
 import com.google.gson.annotations.SerializedName
 
-data class CurrentReponseApi(
+data class CurrentResponseApi(
     @SerializedName("base")
     val base: String?,
     @SerializedName("clouds")
