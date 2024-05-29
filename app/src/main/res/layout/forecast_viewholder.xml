@@ -36,8 +36,8 @@
         android:id="@+id/pic"
         android:layout_width="45dp"
         android:layout_height="45dp"
-        tools:srcCompat="@drawable/sunny"
-        android:layout_marginVertical="8dp" />
+        android:layout_marginVertical="8dp"
+        app:srcCompat="@drawable/sunny" />
 
     <TextView
         android:id="@+id/tempTxt"

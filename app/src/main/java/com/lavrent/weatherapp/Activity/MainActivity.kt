@@ -1,5 +1,8 @@
+@file:Suppress("DEPRECATION")
+
 package com.lavrent.weatherapp.Activity
 
+import android.annotation.SuppressLint
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
@@ -41,9 +44,9 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.apply {
-            var lat = 55.7
-            var lon = 37.6
-            var name = "Moscow"
+            var lat = 50.50
+            var lon = -0.12
+            var name = "London"
 
 
             //current Temp
@@ -51,6 +54,7 @@ class MainActivity : AppCompatActivity() {
             progressBar.visibility = View.VISIBLE
             weatherViewModel.loadCurrentWeather(lat, lon, "metric")
                 .enqueue(object : retrofit2.Callback<CurrentResponseApi> {
+                @SuppressLint("SetTextI18n")
                 override fun onResponse(
                     call: Call<CurrentResponseApi>,
                     response: Response<CurrentResponseApi>
@@ -129,7 +133,7 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 override fun onFailure(call: Call<ForecastResponseApi>, t: Throwable) {
-                    TODO()
+
                 }
             })
         }

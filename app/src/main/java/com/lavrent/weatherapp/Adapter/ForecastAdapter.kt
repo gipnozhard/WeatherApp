@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.lavrent.weatherapp.databinding.ActivityMainBinding
 import com.lavrent.weatherapp.databinding.ForecastViewholderBinding
 import com.lavrent.weatherapp.model.ForecastResponseApi
 import java.text.SimpleDateFormat
@@ -24,7 +23,7 @@ class ForecastAdapter : RecyclerView.Adapter<ForecastAdapter.ViewHolder>() {
 
     override fun onBindViewHolder(holder: ForecastAdapter.ViewHolder, position: Int) {
         val binding = ForecastViewholderBinding.bind(holder.itemView)
-        val date = SimpleDateFormat("yyyy-MM-dd- HH:mm:ss").parse(differ.currentList[position].dtTxt.toString())
+        val date = SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(differ.currentList[position].dtTxt.toString())
         val calendar = Calendar.getInstance()
         calendar.time = date
 
@@ -52,7 +51,7 @@ class ForecastAdapter : RecyclerView.Adapter<ForecastAdapter.ViewHolder>() {
             "04d", "04n" -> "cloudy"
             "09d", "09n" -> "rainy"
             "10d", "10n" -> "rainy"
-            "11d", "11n" -> "rainy"
+            "11d", "11n" -> "storm"
             "13d", "13n" -> "snowy"
             "50d", "50n" -> "windy"
             else -> "sunny"
@@ -60,7 +59,7 @@ class ForecastAdapter : RecyclerView.Adapter<ForecastAdapter.ViewHolder>() {
 
         val drawableResourceId: Int = binding.root.resources.getIdentifier(
             icon,
-            "drawble", binding.root.context.packageName
+            "drawable", binding.root.context.packageName
         )
 
         Glide.with(binding.root.context)
