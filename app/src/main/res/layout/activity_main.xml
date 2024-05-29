@@ -88,7 +88,7 @@
                 android:id="@+id/imageView31"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:srcCompat="@drawable/wind" />
+                app:srcCompat="@drawable/wind" />
 
             <TextView
                 android:id="@+id/windTxt"
@@ -163,7 +163,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginEnd="8dp"
-                    tools:srcCompat="@drawable/arrow_up" />
+                    app:srcCompat="@drawable/arrow_up" />
 
                 <TextView
                     android:id="@+id/maxTempTxt"
@@ -196,7 +196,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginStart="8dp"
-                    tools:srcCompat="@drawable/arrow_down" />
+                    app:srcCompat="@drawable/arrow_down" />
             </LinearLayout>
         </LinearLayout>
 
@@ -211,7 +211,7 @@
                 android:id="@+id/imageView3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:srcCompat="@drawable/humidity" />
+                app:srcCompat="@drawable/humidity" />
 
             <TextView
                 android:id="@+id/humidityTxt"
