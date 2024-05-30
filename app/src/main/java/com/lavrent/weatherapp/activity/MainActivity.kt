@@ -4,12 +4,15 @@ package com.lavrent.weatherapp.activity
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.content.SharedPreferences
 import android.graphics.Color
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.view.View
 import android.view.ViewGroup
 import android.view.ViewOutlineProvider
 import android.view.WindowManager
+import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -24,7 +27,12 @@ import com.lavrent.weatherapp.model.ForecastResponseApi
 import eightbitlab.com.blurview.RenderScriptBlur
 import retrofit2.Call
 import retrofit2.Response
+import java.text.DateFormat
+import java.text.SimpleDateFormat
 import java.util.Calendar
+import java.util.Date
+import java.util.Locale
+import java.util.TimeZone
 
 
 class MainActivity : AppCompatActivity() {
@@ -45,15 +53,32 @@ class MainActivity : AppCompatActivity() {
             statusBarColor = Color.TRANSPARENT
         }
 
+
+        //time current
+        val time = binding.timeTxt
+
+        val timer = object : CountDownTimer(1000, 1000) {
+            override fun onTick(millisUntilFinished: Long) {
+                time.text = getCurrentDate()
+            }
+
+            override fun onFinish() {
+                this.start()
+            }
+
+        }
+
+        timer.start()
+
         binding.apply {
             var lat = intent.getDoubleExtra("lat", 0.0)
             var lon = intent.getDoubleExtra("lon", 0.0)
             var name = intent.getStringExtra("name")
 
             if (lat == 0.0) {
-                 lat = 50.50
-                 lon = -0.12
-                 name = "London"
+                 lat = 55.45
+                 lon = 37.37
+                 name = "Москва"
             }
 
             addCity.setOnClickListener {
@@ -76,7 +101,7 @@ class MainActivity : AppCompatActivity() {
                         detailLayout.visibility = View.VISIBLE
                         data?.let { it ->
                             statusTxt.text = it.weather?.get(0)?.main ?: "-"
-                            windTxt.text = it.wind?.speed?.let { Math.round(it).toString() } + "Km"
+                            windTxt.text = it.wind?.speed?.let { Math.round(it).toString() } + " м/с"
                             humidityTxt.text = it.main?.humidity?.toString() + "%"
                             currentTempTxt.text =
                                 it.main?.temp?.let { Math.round(it).toString() } + "॰"
@@ -148,6 +173,12 @@ class MainActivity : AppCompatActivity() {
                 }
             })
         }
+    }
+
+    private fun getCurrentDate(): String {
+        val date1 = SimpleDateFormat("yyyy-MM-dd HH:mm:ss"/*, Locale.getDefault()*/)
+        return date1.format(Date())
+
     }
 
     private fun isNightNow():Boolean {

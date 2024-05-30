@@ -30,20 +30,21 @@ class ForecastAdapter : RecyclerView.Adapter<ForecastAdapter.ViewHolder>() {
         calendar.time = date
 
         val dayOfWeekName = when(calendar.get(Calendar.DAY_OF_WEEK)) {
-            1 -> "Sun"
-            2 -> "Mon"
-            3 -> "Tue"
-            4 -> "Wed"
-            5 -> "Thu"
-            6 -> "Fri"
-            7 -> "Sat"
+            1 -> "Вс."
+            2 -> "Пон."
+            3 -> "Вт."
+            4 -> "Ср."
+            5 -> "Чт."
+            6 -> "Пят."
+            7 -> "Суб."
             else -> "-"
         }
         binding.nameDayTxt.text = dayOfWeekName
         val hour = calendar.get(Calendar.HOUR_OF_DAY)
-        val amPm = if (hour < 12) "am" else "pm"
-        val hour12 = calendar.get(Calendar.HOUR)
-        binding.hourTxt.text = hour12.toString() + amPm
+        //val amPm = if (hour < 12) " am" else " pm"
+        //val hour12 = calendar.get(Calendar.HOUR)
+        //binding.hourTxt.text = hour12.toString() + amPm
+        binding.hourTxt.text = hour.toString() + ".00"
         binding.tempTxt.text = differ.currentList[position].main?.temp?.let { Math.round(it) }.toString() + "॰"
 
         val icon = when(differ.currentList[position].weather?.get(0)?.icon.toString()) {
