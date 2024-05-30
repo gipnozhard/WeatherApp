@@ -1,6 +1,6 @@
 @file:Suppress("DEPRECATION")
 
-package com.lavrent.weatherapp.Activity
+package com.lavrent.weatherapp.activity
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -15,9 +15,9 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.github.matteobattilana.weather.PrecipType
-import com.lavrent.weatherapp.Adapter.ForecastAdapter
+import com.lavrent.weatherapp.adapter.ForecastAdapter
 import com.lavrent.weatherapp.R
-import com.lavrent.weatherapp.ViewModel.WeatherViewModel
+import com.lavrent.weatherapp.viewModel.WeatherViewModel
 import com.lavrent.weatherapp.databinding.ActivityMainBinding
 import com.lavrent.weatherapp.model.CurrentResponseApi
 import com.lavrent.weatherapp.model.ForecastResponseApi
@@ -28,7 +28,7 @@ import java.util.Calendar
 
 
 class MainActivity : AppCompatActivity() {
-    lateinit var binding: ActivityMainBinding
+    private lateinit var binding: ActivityMainBinding
     private val weatherViewModel: WeatherViewModel by viewModels()
     private val calendar by lazy { Calendar.getInstance() }
     private val forecastAdapter by lazy { ForecastAdapter() }
@@ -73,7 +73,7 @@ class MainActivity : AppCompatActivity() {
                         val data = response.body()
                         progressBar.visibility = View.GONE
                         detailLayout.visibility = View.VISIBLE
-                        data?.let {
+                        data?.let { it ->
                             statusTxt.text = it.weather?.get(0)?.main ?: "-"
                             windTxt.text = it.wind?.speed?.let { Math.round(it).toString() } + "Km"
                             humidityTxt.text = it.main?.humidity?.toString() + "%"
@@ -104,9 +104,9 @@ class MainActivity : AppCompatActivity() {
 
 
             //settings Blue View
-            var radius = 10f
+            val radius = 10f
             val decorView = window.decorView
-            val rootView = (decorView.findViewById(android.R.id.content) as ViewGroup?)
+            val rootView: ViewGroup? = (decorView.findViewById(android.R.id.content))
             val windowBackground = decorView.background
 
             rootView?.let {

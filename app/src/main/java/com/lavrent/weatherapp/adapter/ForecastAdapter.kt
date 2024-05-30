@@ -1,5 +1,6 @@
-package com.lavrent.weatherapp.Adapter
+package com.lavrent.weatherapp.adapter
 
+import android.annotation.SuppressLint
 import android.icu.util.Calendar
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -21,6 +22,7 @@ class ForecastAdapter : RecyclerView.Adapter<ForecastAdapter.ViewHolder>() {
         return ViewHolder()
     }
 
+    @SuppressLint("SimpleDateFormat", "SetTextI18n", "DiscouragedApi")
     override fun onBindViewHolder(holder: ForecastAdapter.ViewHolder, position: Int) {
         val binding = ForecastViewholderBinding.bind(holder.itemView)
         val date = SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(differ.currentList[position].dtTxt.toString())

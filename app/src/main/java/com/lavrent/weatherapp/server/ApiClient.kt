@@ -1,4 +1,4 @@
-package com.lavrent.weatherapp.Server
+package com.lavrent.weatherapp.server
 
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit

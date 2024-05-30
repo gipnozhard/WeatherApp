@@ -16,10 +16,10 @@
         android:theme="@style/Theme.WeatherApp"
         tools:targetApi="31">
         <activity
-            android:name=".Activity.CityListActivity"
+            android:name=".activity.CityListActivity"
             android:exported="false" />
         <activity
-            android:name=".Activity.MainActivity"
+            android:name=".activity.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

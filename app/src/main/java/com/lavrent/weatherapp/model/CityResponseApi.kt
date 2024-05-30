@@ -146,7 +146,7 @@ class CityResponseApi : ArrayList<CityResponseApi.CityResponseApiItem>(){
             @SerializedName("is")
             val isX: String?,
             @SerializedName("it")
-            val `it`: String?,
+            val it: String?,
             @SerializedName("iu")
             val iu: String?,
             @SerializedName("ja")

@@ -1,11 +1,11 @@
-package com.lavrent.weatherapp.ViewModel
+package com.lavrent.weatherapp.viewModel
 
 import androidx.lifecycle.ViewModel
-import com.lavrent.weatherapp.Repository.WeatherRepository
-import com.lavrent.weatherapp.Server.ApiClient
-import com.lavrent.weatherapp.Server.ApiServices
+import com.lavrent.weatherapp.repository.WeatherRepository
+import com.lavrent.weatherapp.server.ApiClient
+import com.lavrent.weatherapp.server.ApiServices
 
-class WeatherViewModel(val repository: WeatherRepository):ViewModel() {
+class WeatherViewModel(private val repository: WeatherRepository):ViewModel() {
 
     constructor():this(WeatherRepository(ApiClient().getClient().create(ApiServices::class.java)))
 

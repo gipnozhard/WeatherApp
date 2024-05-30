@@ -3,6 +3,7 @@ package com.lavrent.weatherapp.model
 
 import com.google.gson.annotations.SerializedName
 
+@Suppress("ClassName")
 data class ForecastResponseApi(
     @SerializedName("city")
     val city: City?,

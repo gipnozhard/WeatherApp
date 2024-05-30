@@ -1,4 +1,4 @@
-package com.lavrent.weatherapp.Activity
+package com.lavrent.weatherapp.activity
 
 import android.graphics.Color
 import android.os.Bundle
@@ -9,9 +9,8 @@ import android.view.WindowManager
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.lavrent.weatherapp.Adapter.CityAdapter
-import com.lavrent.weatherapp.Adapter.ForecastAdapter
-import com.lavrent.weatherapp.ViewModel.CityViewModel
+import com.lavrent.weatherapp.adapter.CityAdapter
+import com.lavrent.weatherapp.viewModel.CityViewModel
 import com.lavrent.weatherapp.databinding.ActivityCityListBinding
 import com.lavrent.weatherapp.model.CityResponseApi
 import retrofit2.Call
@@ -19,7 +18,7 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class CityListActivity : AppCompatActivity() {
-    lateinit var binding: ActivityCityListBinding
+    private lateinit var binding: ActivityCityListBinding
     private val cityAdapter by lazy { CityAdapter() }
     private val cityViewModel: CityViewModel by viewModels()
 
@@ -75,10 +74,8 @@ class CityListActivity : AppCompatActivity() {
                         override fun onFailure(call: Call<CityResponseApi>, t: Throwable) {
 
                         }
-
                     })
                 }
-
             })
 
         }

@@ -1,4 +1,6 @@
-package com.lavrent.weatherapp.Server
+@file:Suppress("LocalVariableName")
+
+package com.lavrent.weatherapp.server
 
 import com.lavrent.weatherapp.model.CityResponseApi
 import retrofit2.Call

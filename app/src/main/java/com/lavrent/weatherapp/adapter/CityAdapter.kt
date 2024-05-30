@@ -1,4 +1,4 @@
-package com.lavrent.weatherapp.Adapter
+package com.lavrent.weatherapp.adapter
 
 import android.content.Intent
 import android.view.LayoutInflater
@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.lavrent.weatherapp.Activity.MainActivity
+import com.lavrent.weatherapp.activity.MainActivity
 import com.lavrent.weatherapp.databinding.CityViewholderBinding
 import com.lavrent.weatherapp.model.CityResponseApi
 
