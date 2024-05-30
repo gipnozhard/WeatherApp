@@ -3,6 +3,7 @@
 package com.lavrent.weatherapp.Activity
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
@@ -44,10 +45,19 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.apply {
-            var lat = 50.50
-            var lon = -0.12
-            var name = "London"
+            var lat = intent.getDoubleExtra("lat", 0.0)
+            var lon = intent.getDoubleExtra("lon", 0.0)
+            var name = intent.getStringExtra("name")
 
+            if (lat == 0.0) {
+                 lat = 50.50
+                 lon = -0.12
+                 name = "London"
+            }
+
+            addCity.setOnClickListener {
+                startActivity(Intent(this@MainActivity, CityListActivity::class.java))
+            }
 
             //current Temp
             cityTxt.text = name
