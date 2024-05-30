@@ -33,6 +33,7 @@ class MainActivity : AppCompatActivity() {
     private val calendar by lazy { Calendar.getInstance() }
     private val forecastAdapter by lazy { ForecastAdapter() }
 
+    //4commit
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
