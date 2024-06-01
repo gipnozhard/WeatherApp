@@ -22,7 +22,7 @@
             android:name=".activity.MainActivity"
             android:screenOrientation="portrait"
             android:exported="true"
-            tools:ignore="DiscouragedApi">
+            tools:ignore="DiscouragedApi,LockedOrientationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
