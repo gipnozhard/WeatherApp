@@ -8,4 +8,5 @@
 
 ....
 для анимаций использовалась билиотека от https://github.com/MatteoBattilana/WeatherView
+
 погоднные данные брал по API: https://openweathermap.org/price
