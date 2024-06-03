@@ -7,3 +7,4 @@
 ![MyCollages](https://github.com/gipnozhard/WeatherApp/assets/71705375/f100b7f4-bde2-4360-81c7-37b9d461620d)
 
 ....
+для анимаций использовалась билиотека от https://github.com/MatteoBattilana/WeatherView
