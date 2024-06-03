@@ -6,6 +6,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.view.ViewOutlineProvider
@@ -21,6 +22,9 @@ import com.lavrent.weatherapp.viewModel.WeatherViewModel
 import com.lavrent.weatherapp.databinding.ActivityMainBinding
 import com.lavrent.weatherapp.model.CurrentResponseApi
 import com.lavrent.weatherapp.model.ForecastResponseApi
+import com.yandex.mobile.ads.banner.AdSize
+import com.yandex.mobile.ads.common.AdRequest
+import com.yandex.mobile.ads.common.MobileAds
 import eightbitlab.com.blurview.RenderScriptBlur
 import retrofit2.Call
 import retrofit2.Response
@@ -144,6 +148,15 @@ class MainActivity : AppCompatActivity() {
                 }
             })
         }
+        // YandexAds
+        MobileAds.initialize(this) {
+            Log.d("MyLog", "YandexAds initialized")
+        }
+
+        binding.banner.setAdUnitId("R-M-9101213-2")
+        binding.banner.setAdSize(AdSize.stickySize(350))
+        val adRequest = AdRequest.Builder().build()
+        binding.banner.loadAd(adRequest)
     }
 
     private fun isNightNow():Boolean {

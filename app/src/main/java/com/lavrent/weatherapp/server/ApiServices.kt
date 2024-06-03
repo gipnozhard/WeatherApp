@@ -17,6 +17,7 @@ interface ApiServices {
         @Query("lon") lon:Double,
         @Query("units") unit:String,
         @Query("appid") ApiKey:String,
+        @Query("lang") lang:String,
         ):Call<CurrentResponseApi>
 
     @GET("data/2.5/forecast")
@@ -25,12 +26,14 @@ interface ApiServices {
         @Query("lon") lon:Double,
         @Query("units") unit:String,
         @Query("appid") ApiKey:String,
+        @Query("lang") lang:String
     ):Call<ForecastResponseApi>
 
     @GET("geo/1.0/direct")
     fun getCitiesList(
         @Query("q") q:String,
         @Query("limit") limit:Int,
-        @Query("appid") ApiKey: String
+        @Query("appid") ApiKey: String,
+        @Query("lang") lang:String
     ):Call<CityResponseApi>
 }

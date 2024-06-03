@@ -75,6 +75,9 @@ dependencies {
     implementation(libs.androidx.activity.ktx)
     implementation(libs.blurview)
     implementation(libs.glide)
+
+    //Mobile Ads SDK
+    implementation("com.yandex.android:mobileads:5.10.0")
 }
 kapt {
     correctErrorTypes = true

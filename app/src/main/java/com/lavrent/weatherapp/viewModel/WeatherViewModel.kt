@@ -14,7 +14,4 @@ class WeatherViewModel(private val repository: WeatherRepository):ViewModel() {
 
     fun loadForecastWeather(lat : Double, lng : Double, unit : String) =
         repository.getForecastWeather(lat, lng, unit)
-
-    fun loadCurrentTimeDate(lat : Double, lng : Double, unit : String) =
-        repository.getCurrentWeather(lat, lng, unit)
 }

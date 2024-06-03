@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">WeatherApp</string>
+    <string name="app_name">Frog.Погода</string>
     <string name="search_your_city">Search Your City</string>
     <string name="type_your_city">type your city</string>
 </resources>
